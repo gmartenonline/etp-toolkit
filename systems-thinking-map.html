@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map It - Systems Thinking - EcoTipping Points</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ---- Systems Thinking step body (mi-). Self-contained, matches the
+           Recognize It / Reverse It page pattern. ---- */
+        .mi-body { font-family: 'Source Sans 3', sans-serif; }
+        .mi-body p { color: #4d564e; line-height: 1.65; font-size: 16px; }
+        .mi-body ul, .mi-body ol { color: #4d564e; line-height: 1.6; padding-left: 20px; margin: 10px 0; }
+        .mi-body li { margin-bottom: 8px; }
+        .mi-body h4 { font-size: 15px; font-weight: 700; color: #173a2b; margin: 22px 0 8px; }
+
+        .mi-intro { max-width: 760px; }
+        .mi-intro h2 { font-size: 28px; font-weight: 600; color: #173a2b; letter-spacing: -0.01em; margin: 0 0 12px; }
+
+        .mi-step { border-top: 1px solid #e8ece8; padding-top: 34px; margin-top: 42px; }
+        .mi-step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; }
+        .mi-step-head h3 { font-size: 23px; font-weight: 600; color: #173a2b; margin: 0; letter-spacing: -0.01em; }
+        .mi-step-body { max-width: 760px; }
+        .mi-context-label { display: block; margin-bottom: 3px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #C92914; text-transform: uppercase; }
+
+        .mi-reflect {
+            background: #f1f5f2; border-left: 3px solid #2a5a44; border-radius: 0 8px 8px 0;
+            padding: 20px 24px; margin: 24px 0; max-width: 760px;
+        }
+        .mi-reflect h3, .mi-reflect h4 { margin: 0 0 8px; color: #173a2b; font-size: 17px; }
+        .mi-reflect p { margin: 0; }
+
+        .mi-embed {
+            background: #f1f5f2; border: 1px solid #d2dcd5; border-radius: 8px;
+            padding: 26px 24px; margin: 16px 0; max-width: 760px;
+        }
+        .mi-embed .mi-embed-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #173a2b; }
+        .mi-embed p { margin: 6px 0 0; font-size: 15px; }
+        .mi-embed a { color: #C92914; font-weight: 600; text-decoration: none; }
+        .mi-embed a:hover { text-decoration: underline; }
+
+        .placeholder {
+            background: #f6f8f6; border: 1px dashed #b7c3ba; border-radius: 8px;
+            padding: 20px 22px; margin: 18px 0; max-width: 760px; color: #5c665d;
+            font-size: 14px; font-style: italic;
+        }
+
+        figure { margin: 22px 0; max-width: 760px; }
+        figure img { display: block; width: 100%; height: auto; border: 1px solid #e4e7e3; border-radius: 8px; }
+        figure img + img { margin-top: 10px; }
+        figcaption { font-size: 13px; color: #5c665d; margin-top: 8px; font-style: italic; }
+        .mi-embed img { display: block; width: 100%; height: auto; border-radius: 6px; margin-bottom: 12px; border: 1px solid #d2dcd5; }
+        .mi-mapseq figure { margin: 12px 0 0; }
+
+        .mi-ingredients {
+            border: 1px solid #e4e7e3; border-radius: 8px; padding: 20px 24px;
+            margin: 30px 0; max-width: 760px; background: #f1f5f2;
+        }
+        .mi-ingredients h4 { margin: 0 0 10px; color: #C92914; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+        .mi-ingredients ul { margin: 0; padding-left: 18px; }
+        .mi-ingredients a { color: #262b26; font-weight: 600; text-decoration: none; }
+        .mi-ingredients a:hover { color: #C92914; }
+
+        .mi-practice {
+            margin: 0;
+            background: #f1f5f2; border: 0; border-left: 3px solid #2a5a44;
+            border-radius: 0; padding: 16px 20px;
+        }
+        .mi-practice .mi-practice-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #C92914; text-transform: uppercase; }
+        .mi-practice h4 { margin: 4px 0 6px; font-size: 17px; color: #173a2b; }
+        .mi-practice p { margin: 0; font-size: 14px; color: #4d564e; }
+        .mi-practice a { color: #C92914; font-weight: 600; text-decoration: none; }
+        .mi-practice a:hover { text-decoration: underline; }
+
+        /* Numbered Apo Island mapping sequence with diagram slots */
+        .mi-body ol.mi-mapseq { list-style: none; padding: 0; margin: 20px 0; max-width: 760px; counter-reset: mapstep; }
+        .mi-mapseq > li { counter-increment: mapstep; border-top: 1px solid #e8ece8; padding-top: 22px; margin-top: 22px; }
+        .mi-mapseq > li:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
+        .mi-mapseq > li::before {
+            content: counter(mapstep); display: inline-block; font-weight: 700; color: #C92914;
+            font-size: 16px; margin-right: 10px;
+        }
+        .mi-mapseq > li p { display: inline; font-size: 16px; }
+        /* Generic diagrams print and display without the figure border */
+        figure.diagram-generic img { border: 0; }
+        /* Generic diagram captions: one bold style (beats .mi-body p and .mi-mapseq > li p) */
+        .mi-body p.diagram-caption { font-weight: 700; font-size: 16px; color: #4d564e; line-height: 1.65; }
+        /* Same caption-to-image gap as the list captions on Reverse It / Lock It In
+           (their 12px figure margin plus ~3px left by the inline caption's line box) */
+        .mi-body p.diagram-caption { margin-bottom: 0; }
+        .mi-body p.diagram-caption + figure { margin-top: 15px; }
+
+        .mi-btn {
+            display: inline-block; background: #C92914; color: #fff; text-decoration: none;
+            font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
+        }
+        .mi-btn:hover { background: #8B190A; }
+
+        /* Squared corners — match the Key Concept box */
+        .mi-reflect, .mi-note, .mi-apo, .mi-ingredients, .mi-practice, .mi-embed, .mi-embed img,
+        .placeholder, .mi-resources, figure img, .mi-chip, .mi-loop { border-radius: 0; }
+        .mi-ingredients { clear: both; }
+
+        .two-col { grid-template-columns: 1fr; }
+        .mi-body > .mi-practice { margin-top: 42px; max-width: 760px; }
+    </style>
+</head>
+<body>
+    <script src="nav.js"></script>
+
+    <nav class="subnav">
+        <div class="subnav-container">
+            <a href="systems-thinking-overview.html">Overview</a>
+            <a href="systems-thinking-understand.html">Understand It</a>
+            <a href="systems-thinking-recognize.html">Recognize It</a>
+            <a href="systems-thinking-map.html" class="active">Map It</a>
+            <a href="systems-thinking-reverse.html">Reverse It</a>
+            <a href="systems-thinking-lock.html">Lock It In</a>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="page-header-content">
+            <div class="label">Systems Thinking</div>
+            <h1>Map It</h1>
+            <p class="intro">Diagram the connections between current and historical elements of the problem, and recognize where self-reinforcing feedback loops are coming into play.</p>
+        </div>
+    </section>
+
+    <div class="two-col">
+        <div class="mi-body main-content">
+
+        <div class="mi-intro">
+            <h2>Goal</h2>
+            <p>Come away with a boxes-and-arrows diagram that exposes the relationships of cause and effect across the <dfn data-definition="The combined social system and ecosystem. The way the combined system functions is a consequence of interaction between social system and ecosystem.">human-environment system</dfn> and shows where <dfn data-definition="A feedback loop that drives undesirable change such as decline in a human-environment system. Vicious cycles can be so powerful that actions intended to solve a problem are ineffective because they are not able to overcome the vicious cycles.">vicious cycles</dfn> are driving decline.</p>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Why are vicious and virtuous cycles key to systemic change?</h3></div>
+            <div class="mi-step-body">
+                <p>This 1-minute video explains how vicious and <dfn data-definition="A feedback loop that drives desirable changes such as restoration and sustainability in a human-environment system. Virtuous cycles appear when a positive tipping point lever reverses vicious cycles, transforming them into virtuous cycles. Additional virtuous cycles may appear as community initiatives create a dynamic of &quot;success breeds success&quot; during a positive tip.">virtuous cycles</dfn> drive negative and positive change.</p>
+                <div class="video-embed">
+                    <iframe
+                        src="https://www.youtube.com/embed/YT9_VnH-T24?rel=0"
+                        title="Why are vicious and virtuous cycles key to systemic change?"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <details class="video-script">
+                    <summary><span class="vs-show">View Script</span><span class="vs-hide">Hide Script</span></summary>
+                    <div class="video-script-body">
+                        <p>Feedback loops are the mechanism behind tipping points.</p>
+                        <p>A feedback loop is a circular chain of cause and effect. A change in one part of a system triggers changes elsewhere, which circle back and amplify the original change.</p>
+                        <p>Consider a fishing community facing declining stocks. As fish become harder to find, fishers put in more effort: more boats, longer hours, more nets. That effort depletes the fishery faster. Stocks fall further, effort increases again. This is a vicious cycle: each response makes the problem worse.</p>
+                        <p>Vicious cycles are powerful. Breaking out of them is difficult. Actions that aren’t strong enough to reverse the cycle may ease certain conditions temporarily; however, the decline continues. When fishing pressure drops enough and spawning grounds are protected, the cycle can flip. Fish populations begin to rebuild. A recovering fishery reduces the pressure to overfish. Lower pressure allows further recovery. The same structure that drove decline now drives restoration.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Why Diagram the Problem</h3></div>
+            <div class="mi-step-body">
+                <p>Diagrams are a vital tool for turning <dfn data-definition="Directing attention to impacts that changing one part of a system will have on the entire system. Systems thinking can help to identify effective action for problem solving.">systems thinking</dfn> into effective action. They expose the relationships of cause and effect spread across the human-environment system, and the potential sites for intervention. This section illustrates how to diagram the connections between current and historical elements of a problem and how to recognize where self-reinforcing <dfn data-definition="A continuous circle of cause and effect, where change in one part of the circle induces a chain of effects around the circle to generate further change. The feedback loops in this toolkit are amplifying feedback loops, which can drive dramatic change.">feedback loops</dfn> are coming into play.</p>
+                <p class="diagram-caption">This process can be described in the following way:</p>
+                <figure class="diagram-half diagram-generic"><img src="images/systems-thinking/image6.png" alt="Diagram: the recognised vicious cycle — increasing damaging activity and a further degraded ecosystem"></figure>
+                <p>The <dfn data-definition="Actions or events that set decline in motion in a human-environment system.">negative tipping point lever</dfn> that triggered the problem is often too far in the past to alter, and it may no longer be a cause of the problem. However, the vicious cycles it set in motion are responsible for the problem because they are driving it, and those vicious cycles can be reversed with the right set of actions. Concretely, what are those vicious cycles? And where are they located in the human-environment <dfn data-definition="An assemblage of interconnected elements whose behavior is shaped by functional connections between them. The behavior of the entire system is a consequence of interaction between the parts.">system</dfn>? Creating a detailed diagram helps locate points in the system where vicious cycles are driving decline, and places in the system that are most open to change if <dfn data-definition="An assemblage of interventions that set in motion the reversal of decline in a human-environment system, putting it on a course of restoration, health, and sustainability. Positive tipping point levers include (1) technology that underlies intervention for desired ecosystem change and (2) social organization to put that technology effectively into use.">positive tipping point levers</dfn> are put into action.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Seeing the System in Action</h3></div>
+            <div class="mi-step-body">
+                <p><strong>How do vicious cycles cause collapse?</strong> The video below uses diagrams to show how vicious cycles of collapse unfolded at Apo Island.</p>
+                <figure>
+                    <div class="video-embed video-embed-caption-space">
+                        <iframe
+                            src="https://www.youtube.com/embed/9lj0-a6Wp1g?rel=0"
+                            title="How do vicious cycles cause collapse?"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </figure>
+                <details class="video-script">
+                    <summary><span class="vs-show">View Script</span><span class="vs-hide">Hide Script</span></summary>
+                    <div class="video-script-body">
+                        <p>The introduction of destructive fishing methods, such as dynamite, to the Philippines was a tipping point lever that set in motion a serious decline in the nation’s coral reef fisheries, threatening the survival of fishing villages that had relied upon coral ecosystems for generations. Destructive fishing could catch a lot of fish, but it killed too many fish, and also damaged the coral habitat, reducing fish populations even further and forcing fishermen to increase their destructive fishing to catch enough fish at all. This created a vicious cycle of destructive fishing, damaged coral habitat, and fewer fish, leading to even more destructive fishing. A decline in coral and fish near fishing villages created a second vicious cycle because fishermen were forced to travel further and further away from home to find fishing areas that were not as damaged, and they ramped up their use of destructive methods because they had very little incentive to sustain fishing grounds that were not their own. The two vicious cycles reinforced each other to drive coral reefs and their fish populations toward collapse. The Philippine government enacted laws prohibiting destructive fishing, but it was not able to enforce the laws over such a vast area.</p>
+                    </div>
+                </details>
+                <p><span class="mi-context-label">For full context</span><a href="story-apo-island.html">Watch the Apo Island story on marine sanctuary restoration in the Philippines</a> (7 min)</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Creating a Diagram</h3></div>
+            <div class="mi-step-body">
+                <p>To create a diagram you will need a list of losses, problems, changes, potential triggers, and other experiences that have been part of the story of decline you are mapping. The elements of the problem have historical roots, and so systems thinking requires reviewing the history of the problem to find actions and events connected to the current situation. When you are ready to map, focus less on including every loss, pressure and impact, and more on exposing the connections between the key elements creating the self-reinforcing vicious cycles. It is helpful to distinguish graphically between actions people are taking, and resulting impacts on the <dfn data-definition="The entire biophysical world in a specified area. The scale of an ecosystem can range from microscopic to the entire Planet. This toolkit focuses on environmental support systems for local communities.">ecosystem</dfn> or <dfn data-definition="Worldview, social organization, social institutions, knowledge, and technology of a community. A community&#x27;s social system is the basis for how it functions.">social system</dfn>. In our step-by-step example of how to map the elements of decline, we use <strong>rectangles</strong> for actions taken by the community and <strong>ovals</strong> for their resulting impacts on the human-environment system.</p>
+                <p>There is not one formula for where to begin when creating a diagram. If the negative tipping point lever is obvious, you can begin there and then identify the impacts of that change, and then what further impacts and actions were caused by those consequences. If the negative tipping point lever is not clear, then pick one manifestation of the problem, usually a core resource loss, and draw it in the center to begin your map. Let it unfold from there by going back in time to add what action caused the event, and then even further back in time to add what stimulated that action. The earliest cause in the chain, the event or change that started the whole sequence, is the negative tipping point lever responsible for setting in motion a shift in the human-environment system. Once you have worked your way back to the negative tipping point lever, you can begin to look at the actions and impacts associated with decline in the core resource, and what consequences they had until you have included most elements you recognize as part of the problem. This allows you to build a full picture of the connections that are currently cycling through the human-environment system and creating the vicious cycles driving decline.</p>
+                <p>As you build your diagram, refer back to the list of elements that you recognize as part of the problem, to see how they are fitting into the system. No impact is too small to consider placing on the map, because even a seemingly insignificant impact may be a critical element of a powerful feedback loop. Any element in your diagram may lead to different actions and impacts, and some of those elements may loop back to something already in the chain of effects. This is when the diagram starts showing vicious cycles coming into play. Highlight these vicious cycles: they are the driving force of decline and the most important places in the system to break. Some feedback loops become especially powerful because they feed into other loops, forming interconnected and mutually reinforcing vicious cycles. These amplifying vicious cycles intensify impacts with such force that destructive changes cascade through the human-environment system and perpetuate decline. The negative tipping point lever that set decline in motion may not be open to change, but the amplifying vicious cycles it triggered may be sites in the system for effective intervention.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Step by Step: Mapping a Negative Tip at Apo Island</h3></div>
+            <div class="mi-step-body">
+                <p>We use the example of Apo Island to illustrate, step by step, how a <dfn data-definition="Decline in the human-environment system initiated by a negative tipping point lever.">negative tip</dfn> can be mapped.</p>
+                <figure>
+                    <img src="images/systems-thinking/map_it_workshop_1.png" alt="Apo Island — Map It: Building the Map">
+                </figure>
+                <ol class="mi-mapseq">
+                    <li>
+                        <p>If the negative tipping point lever is obvious, you can begin there. If not, then pick one item, usually a core resource loss, and draw it in the center to begin your map.</p>
+                        <figure>
+                            <img src="images/systems-thinking/map_it_workshop_2.png" alt="Apo Island map: a single 'Fewer Fish' node in the center">
+                        </figure>
+                    </li>
+                    <li>
+                        <p>What caused the core loss? Add the cause, noting whether it is an action or an impact. If it is an impact, you know that you have not arrived at the root causes.</p>
+                        <figure>
+                            <img src="images/systems-thinking/map_it_workshop_3.png" alt="Apo Island map: 'More damaged coral habitat and less fish' leads to 'Fewer Fish'">
+                        </figure>
+                    </li>
+                    <li>
+                        <p>Continue adding causes as you move backwards in time towards root causes. If a cause is an action, it does not necessarily mean it is the negative tipping point lever. It may be a response to prior actions and effects.</p>
+                        <figure>
+                            <img src="images/systems-thinking/map_it_workshop_4.png" alt="Apo Island map: destructive fishing lever and action added to the chain of causes">
+                        </figure>
+                    </li>
+                    <li>
+                        <p>What happened before that? Continue back through time until you arrive at an event or set of events that seems responsible for triggering the systemic change. You can label the triggers as the negative tipping point lever.</p>
+                        <figure>
+                            <img src="images/systems-thinking/map_it_workshop_5.png" alt="Apo Island map: the loop closes from 'Fewer Fish' back to 'More use of destructive fishing'">
+                        </figure>
+                    </li>
+                    <li>
+                        <p>Then look forward in time to how one thing affected another. What happened next? If you see a resulting impact aggravating the problem that caused it, you have revealed a self-reinforcing vicious cycle where the worse things get the worse it makes everything else.</p>
+                        <figure>
+                            <img src="images/systems-thinking/map_it_workshop_6.png" alt="Apo Island map: a branch to 'Fishing further away from home' added">
+                        </figure>
+                    </li>
+                    <li>
+                        <p>Many elements of your diagram will have more than one resulting impact. Lead those separate directions, so that you can follow the multiple chains of effects being created.</p>
+                        <figure>
+                            <img src="images/systems-thinking/map_it_workshop_7.png" alt="Apo Island map: 'Less incentive for sustaining fishery' added, forming a second loop">
+                        </figure>
+                    </li>
+                    <li>
+                        <p>As you see new chains of effects unfold, new vicious cycles will likely feed back into earlier vicious cycles, reinforcing and amplifying each other. It is these amplifying vicious cycles that spiral a system into decline.</p>
+                        <figure>
+                            <img src="images/systems-thinking/map_it_workshop_8.png" alt="Apo Island map: the full connected system of two reinforcing loops">
+                        </figure>
+                    </li>
+                    <li>
+                        <p>There are many hardships and losses that are direct symptoms of the problem, but they may not end up on your map because they do not cause new problems that drive decline. In complex situations, this may take some trial and error with multiple maps to focus on elements that are part of the vicious cycles driving decline.</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>A More Complex Case in Rajasthan</h3></div>
+            <div class="mi-step-body">
+                <p>This diagram for a village in semi-arid Rajasthan that faced the loss of precious irrigation water is more complex. Although diagrams like this can take more effort to understand, they provide an accurate picture of what the community is facing. The details will help you find parts of the system to target with a positive tipping point lever for setting restoration in motion.</p>
+                <figure>
+                    <img src="images/systems-thinking/map_it_workshop_9.png" alt="The Rajasthan systems diagram: 'Logging the forest' lever feeding many interacting loops">
+                </figure>
+                <p><span class="mi-context-label">For full context</span><a href="story-gopalpura.html">Watch the Gopalpura story on rainwater harvesting in Rajasthan, India</a> (11 min)</p>
+            </div>
+        </div>
+
+        <!-- HIDDEN 2026-09-25 (Brief 31): Ingredients for Success module
+        <div class="mi-ingredients">
+            <h4>Ingredients for Success</h4>
+            <ul>
+                <li><a href="ingredient-social-ecological-memory.html">Social and ecological memory</a></li>
+                <li><a href="ingredient-harmony-ecosystem.html">Harmony between community and ecosystem</a></li>
+            </ul>
+        </div>
+        -->
+
+        <div class="mi-practice">
+            <span class="mi-practice-label">In the field</span>
+            <h4><a href="systems-thinking-map-practice.html">Map It in Practice &rarr;</a></h4>
+            <p>How to run a community mapping session using this framework: session structure, prompting questions, and field notes on group dynamics.</p>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Next Steps</h3></div>
+            <div class="mi-step-body">
+                <p>With the vicious cycles visible on paper, the next step is to identify where you can intervene to reverse them.</p>
+                <a href="systems-thinking-reverse.html" class="mi-btn">Continue to Reverse It</a>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recognize It - Systems Thinking - EcoTipping Points</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ---- Systems Thinking step body (mi-). Self-contained, matches the
+           Map It / Reverse It page pattern. ---- */
+        .mi-body { font-family: 'Source Sans 3', sans-serif; }
+        .mi-body p { color: #4d564e; line-height: 1.65; font-size: 16px; }
+        .mi-body ul, .mi-body ol { color: #4d564e; line-height: 1.6; padding-left: 20px; margin: 10px 0; }
+        .mi-body li { margin-bottom: 8px; }
+        .mi-body h4 { font-size: 15px; font-weight: 700; color: #173a2b; margin: 22px 0 8px; }
+
+        .mi-intro { max-width: 760px; }
+        .mi-intro h2 { font-size: 28px; font-weight: 600; color: #173a2b; letter-spacing: -0.01em; margin: 0 0 12px; }
+
+        .mi-step { border-top: 1px solid #e8ece8; padding-top: 34px; margin-top: 42px; }
+        .mi-step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; }
+        .mi-step-head h3 { font-size: 23px; font-weight: 600; color: #173a2b; margin: 0; letter-spacing: -0.01em; }
+        .mi-step-body { max-width: 760px; }
+        .mi-context-label { display: block; margin-bottom: 3px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #C92914; text-transform: uppercase; }
+
+        .mi-reflect {
+            background: #f1f5f2; border-left: 3px solid #2a5a44; border-radius: 0 8px 8px 0;
+            padding: 20px 24px; margin: 24px 0; max-width: 760px;
+        }
+        .mi-reflect h3, .mi-reflect h4 { margin: 0 0 8px; color: #173a2b; font-size: 17px; }
+        .mi-reflect p { margin: 0; }
+
+        .mi-embed {
+            background: #f1f5f2; border: 1px solid #d2dcd5; border-radius: 8px;
+            padding: 26px 24px; margin: 16px 0; max-width: 760px;
+        }
+        .mi-embed .mi-embed-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #173a2b; }
+        .mi-embed p { margin: 6px 0 0; font-size: 15px; }
+        .mi-embed a { color: #C92914; font-weight: 600; text-decoration: none; }
+        .mi-embed a:hover { text-decoration: underline; }
+
+        .placeholder {
+            background: #f6f8f6; border: 1px dashed #b7c3ba; border-radius: 8px;
+            padding: 20px 22px; margin: 18px 0; max-width: 760px; color: #5c665d;
+            font-size: 14px; font-style: italic;
+        }
+
+        figure { margin: 22px 0; max-width: 760px; }
+        figure img { display: block; width: 100%; height: auto; border: 1px solid #e4e7e3; border-radius: 8px; }
+        figure img + img { margin-top: 10px; }
+        figcaption { font-size: 13px; color: #5c665d; margin-top: 8px; font-style: italic; }
+        .mi-embed img { display: block; width: 100%; height: auto; border-radius: 6px; margin-bottom: 12px; border: 1px solid #d2dcd5; }
+
+        .mi-ingredients {
+            border: 1px solid #e4e7e3; border-radius: 8px; padding: 20px 24px;
+            margin: 30px 0; max-width: 760px; background: #f1f5f2;
+        }
+        .mi-ingredients h4 { margin: 0 0 10px; color: #C92914; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+        .mi-ingredients ul { margin: 0; padding-left: 18px; }
+        .mi-ingredients a { color: #262b26; font-weight: 600; text-decoration: none; }
+        .mi-ingredients a:hover { color: #C92914; }
+
+        .mi-apo {
+            background: #f1f5f2; border: 1px solid #e4e7e3; border-radius: 8px;
+            padding: 20px 22px; margin: 20px 0; max-width: 820px;
+        }
+        .mi-apo .mi-eyebrow { font-size: 11px; font-weight: 600; color: #C92914; margin-bottom: 10px; }
+        .mi-apo p { margin: 0 0 12px; font-size: 15px; }
+        .mi-apo p:last-child { margin-bottom: 0; }
+
+        .mi-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0 4px; }
+        .mi-chip {
+            background: #eef2ef; border: 1px solid #d2dcd5; border-radius: 6px;
+            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #173a2b;
+        }
+        .mi-arrow { color: #C92914; font-size: 14px; }
+        .mi-loop {
+            background: transparent; border: 1px solid #C92914; border-radius: 6px;
+            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #C92914;
+        }
+
+        .mi-btn {
+            display: inline-block; background: #C92914; color: #fff; text-decoration: none;
+            font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
+        }
+        .mi-btn:hover { background: #8B190A; }
+
+        /* Squared corners — match the Key Concept box */
+        .mi-reflect, .mi-note, .mi-apo, .mi-ingredients, .mi-embed, .mi-embed img,
+        .placeholder, .mi-resources, figure img, .mi-chip, .mi-loop { border-radius: 0; }
+
+        .two-col { grid-template-columns: 1fr; }
+    </style>
+</head>
+<body>
+    <script src="nav.js"></script>
+
+    <nav class="subnav">
+        <div class="subnav-container">
+            <a href="systems-thinking-overview.html">Overview</a>
+            <a href="systems-thinking-understand.html">Understand It</a>
+            <a href="systems-thinking-recognize.html" class="active">Recognize It</a>
+            <a href="systems-thinking-map.html">Map It</a>
+            <a href="systems-thinking-reverse.html">Reverse It</a>
+            <a href="systems-thinking-lock.html">Lock It In</a>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="page-header-content">
+            <div class="label">Systems Thinking</div>
+            <h1>Recognize It</h1>
+            <p class="intro">Review the history of the problem you are working with and assess the current situation to bring to light the interconnected elements perpetuating decline across the human-environment system.</p>
+        </div>
+    </section>
+
+    <div class="two-col">
+        <div class="mi-body main-content">
+
+        <div class="mi-intro">
+            <h2>Goal</h2>
+            <p>Come away with the range of losses, large and small; the chains of cause-and-effect that connect them; the <dfn data-definition="A feedback loop that drives undesirable change such as decline in a human-environment system. Vicious cycles can be so powerful that actions intended to solve a problem are ineffective because they are not able to overcome the vicious cycles.">vicious cycles</dfn> those chains are driving; and the turning point toward decline.</p>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>How can EcoTipping Points create systemic change?</h3></div>
+            <div class="mi-step-body">
+                <p>This 1-minute video explains the storyline of <dfn data-definition="Points in a human-environment system where changes small enough to be doable can cross a threshold to set in motion major changes such as decline and collapse or restoration and sustainability.">EcoTipping Points</dfn> case studies.</p>
+                <div class="video-embed">
+                    <iframe
+                        src="https://www.youtube.com/embed/BMKD6ch8yHo?rel=0"
+                        title="How can EcoTipping Points create systemic change?"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <details class="video-script">
+                    <summary><span class="vs-show">View Script</span><span class="vs-hide">Hide Script</span></summary>
+                    <div class="video-script-body">
+                        <p>Every tipping point success story follows the same basic structure.</p>
+                        <p>It begins with a trigger. A new fishing technology arrives, or a drought hits, or a policy changes. Whatever the cause, it sets off a chain reaction. Changes in the ecosystem shift what’s possible for the community. Changes in the community put more pressure on the ecosystem. Ecosystem health falls further. Both spiral downward together.</p>
+                        <p>The second part begins with a decision to act. A targeted intervention interrupts the spiral and starts a new one, this time toward recovery. As the ecosystem rebounds, local livelihoods improve. Improvement motivates further action. The gains compound, and the approach spreads to neighboring communities.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>The Web of Interconnected Elements</h3></div>
+            <div class="mi-step-body">
+                <p><dfn data-definition="Directing attention to impacts that changing one part of a system will have on the entire system. Systems thinking can help to identify effective action for problem solving.">Systems thinking</dfn> looks at ecological decline as a set of interconnected elements across the <dfn data-definition="The combined social system and ecosystem. The way the combined system functions is a consequence of interaction between social system and ecosystem.">human-environment system</dfn>, tied together by causal relationships that keep conditions improving or worsening. That web is what makes recognizing the scope of the problem one of the greatest challenges in addressing decline. Identifying losses large and small begins to uncover chains of cause and effect, and some of those chains are responsible for the vicious cycles spiraling a community into crisis. How elements spread across the human-environment system are connected is rarely immediately apparent: men leaving their failed crops in Rajasthan villages to find work in the cities is not obviously linked to abandoning maintenance of their traditional rainwater-harvesting ponds, until connections are uncovered between how the dams built to create the ponds channeled rainwater runoff into the aquifer, which provided irrigation water for farming. And, since the departed men were no longer available to help maintain dams, these impacts reinforced each other.</p>
+                <p><span class="mi-context-label">For full context</span><a href="story-gopalpura.html">Watch the Gopalpura story on rainwater harvesting in Rajasthan, India</a> (11 min)</p>
+                <p>A clear goal of reviewing the history of the problem and assessing the current situation can help bring to light the interconnected elements perpetuating decline in the human-environment <dfn data-definition="An assemblage of interconnected elements whose behavior is shaped by functional connections between them. The behavior of the entire system is a consequence of interaction between the parts.">system</dfn>. Those key elements are revealed by going back in time to see how conditions have worsened, what actions or events triggered a change in conditions, how losses for the <dfn data-definition="The entire biophysical world in a specified area. The scale of an ecosystem can range from microscopic to the entire Planet. This toolkit focuses on environmental support systems for local communities.">ecosystem</dfn> have brought about changes in the human <dfn data-definition="Worldview, social organization, social institutions, knowledge, and technology of a community. A community&#x27;s social system is the basis for how it functions.">social system</dfn>, and where chains of cause-and-effect have been set in motion. Surveying the range of changes also helps identify the vicious cycles driving decline, and the turning point towards it. As you explore the scope of the problem, no loss or pressure is too small to consider, because even small impacts can create a vicious cycle driving decline.</p>
+                <p>Though there are many ways to piece together the scope of the problem, our case studies of successful restoration share similarities in how a clear vision was reached. Outside organizations or individuals often played key roles in stimulating a reckoning and openness to fresh approaches, but the interconnection of different parts of the problem spread across the human-environment system emerged from storytelling and discussion among community members. The experience and memories of a cross-section of community members provided the rich detail needed to recognize the range of losses and sequences of cause-and-effect, and the history of the problem. The memory of elders was an especially rich resource for piecing together how things had changed and for recalling long-held and sustainable resource management practices that had been abandoned, or the sequence of events that unfolded when new ones were introduced. They remember how both their communities and ecosystems operated when they were healthier. In our Rajasthan case study, if one elder had not shared his memories from childhood of the seasonal dam maintenance by the community, a key element of the problem and solution would have been missed.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Scoping Goals</h3></div>
+            <div class="mi-step-body">
+                <p><em>The scoping goals below are guides to clarifying the structure of the problem. Each is illustrated by an example from our Apo Island case study, in which a fishing village in the Philippines restored its collapsing fishery and way of life with the positive tipping point levers of establishing a marine sanctuary and creating strict rules for their fishing grounds. But first they pieced together their story to understand why their village was falling apart.</em></p>
+
+                <figure>
+                    <div class="video-embed">
+                        <iframe
+                            src="https://www.youtube.com/embed/v8oNhckPjFM?rel=0"
+                            title="Saving a Fishery and Coral Reef (Apo Island)"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <figcaption>Video: Saving a Fishery and Coral Reef (Apo Island).</figcaption>
+                </figure>
+
+                <h4>A shift from a better past.</h4>
+                <p>What were conditions like before the decline? This helps identify what the community is trying to recover and how things went wrong.</p>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p><strong>The Memory:</strong> Elders remembered when the reefs were healthy and fish were abundant, and the fishing techniques they used.</p>
+                </div>
+
+                <h4>A trigger or starting point.</h4>
+                <p>Was there a specific event or change that set things in motion? A new technology introduced, a policy change, a shift in land use or ownership?</p>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p><strong>The Trigger:</strong> The introduction of destructive fishing methods led to overfishing and damage to the coral reef ecosystem.</p>
+                </div>
+
+                <h4>A sequence of connected problems.</h4>
+                <p>Does one problem seem to have caused another? You're looking for chains: this led to that, which made this worse, which caused that.</p>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island — the sequence</div>
+                    <div class="mi-chips">
+                        <span class="mi-chip">Destructive fishing methods</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Damaged reefs and overfishing</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Fewer fish</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Greater dependence on destructive methods</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Even fewer fish</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Fishing further away</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Less incentive to protect local waters</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">More destructive methods</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">More reef damage</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-loop">&#8634; Even fewer fish</span>
+                    </div>
+                </div>
+
+                <h4>Thresholds or turning points.</h4>
+                <p>Moments when things got noticeably worse, or faster. These often mark where the system crossed into a new state.</p>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p><strong>First turning point:</strong> Declining numbers of fish made destructive fishing essential to catch any fish at all.</p>
+                    <p><strong>Second turning point:</strong> Fishermen could no longer make a living from island fishing grounds and had to travel farther from home.</p>
+                </div>
+
+                <h4>Impacts on the social system.</h4>
+                <p>For each environmental loss, what has it meant for people's lives, income, and work?</p>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p><strong>The Crisis:</strong> Eventually, there was nowhere close by with adequate fish, and the community faced collapse.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HIDDEN 2026-09-25 (Brief 31): Ingredients for Success module
+        <div class="mi-ingredients">
+            <h4>Ingredients for Success</h4>
+            <ul>
+                <li><a href="ingredient-shared-awareness.html">Shared community awareness and commitment</a></li>
+                <li><a href="ingredient-social-ecological-memory.html">Social and ecological memory</a></li>
+                <li><a href="ingredient-outside-stimulation.html">Outside stimulation and facilitation</a></li>
+            </ul>
+        </div>
+        -->
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Next Steps</h3></div>
+            <div class="mi-step-body">
+                <p>With the losses, causes, and rough history in hand, the next step is to diagram how they connect.</p>
+                <a href="systems-thinking-map.html" class="mi-btn">Continue to Map It</a>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

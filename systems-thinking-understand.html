@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understand It - Systems Thinking - EcoTipping Points</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ---- Systems Thinking step body (mi-). Self-contained, matches the
+           Map It / Recognize It / Reverse It page pattern. Top nav, footer and
+           left section rail (nav.js) and the .page-header green band are
+           untouched. ---- */
+        .mi-body { font-family: 'Source Sans 3', sans-serif; }
+        .mi-body p { color: #4d564e; line-height: 1.65; font-size: 16px; }
+        .mi-body ul, .mi-body ol { color: #4d564e; line-height: 1.6; padding-left: 20px; margin: 10px 0; }
+        .mi-body li { margin-bottom: 8px; }
+        .mi-body h4 { font-size: 15px; font-weight: 700; color: #173a2b; margin: 22px 0 8px; }
+
+        .mi-intro { max-width: 760px; }
+        .mi-intro h2 { font-size: 28px; font-weight: 600; color: #173a2b; letter-spacing: -0.01em; margin: 0 0 12px; }
+
+        .mi-step { border-top: 1px solid #e8ece8; padding-top: 34px; margin-top: 42px; }
+        .mi-step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; }
+        .mi-step-head h3 { font-size: 23px; font-weight: 600; color: #173a2b; margin: 0; letter-spacing: -0.01em; }
+        .mi-step-body { max-width: 760px; }
+
+        .mi-reflect {
+            background: #f1f5f2; border-left: 3px solid #2a5a44; border-radius: 0 8px 8px 0;
+            padding: 20px 24px; margin: 24px 0; max-width: 760px;
+        }
+        .mi-reflect h3, .mi-reflect h4 { margin: 0 0 8px; color: #173a2b; font-size: 17px; }
+        .mi-reflect p { margin: 0; }
+
+        .mi-embed {
+            background: #f1f5f2; border: 1px solid #d2dcd5; border-radius: 8px;
+            padding: 26px 24px; margin: 16px 0; max-width: 760px;
+        }
+        .mi-embed .mi-embed-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #173a2b; }
+        .mi-embed p { margin: 6px 0 0; font-size: 15px; }
+        .mi-embed a { color: #C92914; font-weight: 600; text-decoration: none; }
+        .mi-embed a:hover { text-decoration: underline; }
+
+        .placeholder {
+            background: #f6f8f6; border: 1px dashed #b7c3ba; border-radius: 8px;
+            padding: 20px 22px; margin: 18px 0; max-width: 760px; color: #5c665d;
+            font-size: 14px; font-style: italic;
+        }
+
+        figure { margin: 22px 0; max-width: 760px; }
+        figure img { display: block; width: 100%; height: auto; border: 1px solid #e4e7e3; border-radius: 8px; }
+        figure img + img { margin-top: 10px; }
+        figcaption { font-size: 13px; color: #5c665d; margin-top: 8px; font-style: italic; }
+        .mi-embed img { display: block; width: 100%; height: auto; border-radius: 6px; margin-bottom: 12px; border: 1px solid #d2dcd5; }
+
+        .mi-ingredients {
+            border: 1px solid #e4e7e3; border-radius: 8px; padding: 20px 24px;
+            margin: 30px 0; max-width: 760px; background: #f1f5f2;
+        }
+        .mi-ingredients h4 { margin: 0 0 10px; color: #C92914; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+        .mi-ingredients ul { margin: 0; padding-left: 18px; }
+        .mi-ingredients a { color: #262b26; font-weight: 600; text-decoration: none; }
+        .mi-ingredients a:hover { color: #C92914; }
+
+        .mi-btn {
+            display: inline-block; background: #C92914; color: #fff; text-decoration: none;
+            font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
+        }
+        .mi-btn:hover { background: #8B190A; }
+
+        /* Squared corners — match the Key Concept box */
+        .mi-reflect, .mi-note, .mi-apo, .mi-ingredients, .mi-embed, .mi-embed img,
+        .placeholder, .mi-resources, figure img, .mi-chip, .mi-loop { border-radius: 0; }
+
+        .two-col { grid-template-columns: 1fr; }
+    </style>
+</head>
+<body>
+    <script src="nav.js"></script>
+
+    <nav class="subnav">
+        <div class="subnav-container">
+            <a href="systems-thinking-overview.html">Overview</a>
+            <a href="systems-thinking-understand.html" class="active">Understand It</a>
+            <a href="systems-thinking-recognize.html">Recognize It</a>
+            <a href="systems-thinking-map.html">Map It</a>
+            <a href="systems-thinking-reverse.html">Reverse It</a>
+            <a href="systems-thinking-lock.html">Lock It In</a>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="page-header-content">
+            <div class="label">Systems Thinking</div>
+            <h1>Understand It</h1>
+            <p class="intro">Before analyzing a particular place, build a general understanding of what EcoTipping Points are and why a systems lens reveals where decline can be turned around.</p>
+        </div>
+    </section>
+
+    <div class="two-col">
+        <div class="mi-body main-content">
+
+        <div class="mi-intro">
+            <h2>Goal</h2>
+            <p>Come away with a working grasp of one idea: that ecological decline is driven by interconnected <dfn data-definition="A feedback loop that drives undesirable change such as decline in a human-environment system. Vicious cycles can be so powerful that actions intended to solve a problem are ineffective because they are not able to overcome the vicious cycles.">vicious cycles</dfn>, and that carefully directed actions at the right points can flip those cycles toward restoration.</p>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>What are EcoTipping Points?</h3></div>
+            <div class="mi-step-body">
+                <p>This 1-minute video summarizes the concept of <dfn data-definition="Points in a human-environment system where changes small enough to be doable can cross a threshold to set in motion major changes such as decline and collapse or restoration and sustainability.">EcoTipping Points</dfn>.</p>
+                <div class="video-embed">
+                    <iframe
+                        src="https://www.youtube.com/embed/sTKERogh_Es?rel=0"
+                        title="What are EcoTipping Points?"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <details class="video-script">
+                    <summary><span class="vs-show">View Script</span><span class="vs-hide">Hide Script</span></summary>
+                    <div class="video-script-body">
+                        <p>A tipping point is a threshold: the conditions where a system is balanced between two very different states. Push it past that boundary, and a cascade of larger changes takes over.</p>
+                        <p>Grasslands are a clear example. A healthy grassland can support grazing up to a point. When cattle numbers exceed what the land can sustain, the grass starts to deteriorate. As grass cover thins, soil erodes. As soil erodes, less grass grows. Each change worsens the next, until productive land becomes desert.</p>
+                        <p>That’s a negative tipping point: a threshold crossed in the direction of decline, where the changes reinforce each other.</p>
+                        <p>Tipping points also run in the other direction. The same cascading feedback dynamics that drive an ecosystem toward collapse can, with the right intervention, drive it toward recovery.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Decline as an Interconnected System</h3></div>
+            <div class="mi-step-body">
+                <p><dfn data-definition="Directing attention to impacts that changing one part of a system will have on the entire system. Systems thinking can help to identify effective action for problem solving.">Systems Thinking</dfn> is a framework that looks at ecological decline as a consequence of interconnected elements across the <dfn data-definition="The combined social system and ecosystem. The way the combined system functions is a consequence of interaction between social system and ecosystem.">human-environment system</dfn>. <dfn data-definition="The entire biophysical world in a specified area. The scale of an ecosystem can range from microscopic to the entire Planet. This toolkit focuses on environmental support systems for local communities.">Ecosystems</dfn> and <dfn data-definition="Worldview, social organization, social institutions, knowledge, and technology of a community. A community&#x27;s social system is the basis for how it functions.">social systems</dfn> are interwoven in an intricate relationship, with transformations in one part of the <dfn data-definition="An assemblage of interconnected elements whose behavior is shaped by functional connections between them. The behavior of the entire system is a consequence of interaction between the parts.">system</dfn> creating ripples of impacts and pressures in other parts: declining fish stocks push fishers toward destructive methods, which damages reefs further, which reduces fish stocks more. Circular chains of interconnected impacts like this are <dfn data-definition="A continuous circle of cause and effect, where change in one part of the circle induces a chain of effects around the circle to generate further change. The feedback loops in this toolkit are amplifying feedback loops, which can drive dramatic change.">feedback loops</dfn> that create vicious cycles. They are why problems that seem simple resist easy fixes. Addressing individual symptoms, no matter how urgent, is limited in its impact.</p>
+                <p>Feedback loops can also reinforce restorative change: rebuilding traditional rainwater-harvesting ponds replenishes aquifers, which revives forest and vegetation, which prevents erosion, which makes it easier for communities to maintain their ponds. These are <dfn data-definition="A feedback loop that drives desirable changes such as restoration and sustainability in a human-environment system. Virtuous cycles appear when a positive tipping point lever reverses vicious cycles, transforming them into virtuous cycles. Additional virtuous cycles may appear as community initiatives create a dynamic of &quot;success breeds success&quot; during a positive tip.">virtuous cycles</dfn>, and finding the right ones to intentionally set in motion is the key to reversing decline.</p>
+                <p>Environmental losses will eventually lead to social losses. And so the interconnected human-environment system can be in a harmonious or self-destructive state depending on the choices we make and whether they create conditions in which social and environmental gains go hand-in-hand. EcoTipping Points are points in a human-environment system where sets of actions have the power to propel the system from one of those states to another. We call these powerful actions <em>tipping point levers</em>. Crossing a threshold happens when tipping point levers set in motion self-reinforcing vicious or virtuous cycles that feed into each other with such amplifying force that changes cascade through the human-environment system, spiraling it towards collapse or restoration.</p>
+                <p>For communities experiencing ecological decline, there have been <dfn data-definition="Actions or events that set decline in motion in a human-environment system.">negative tipping point levers</dfn> that set in motion the vicious cycles pushing communities to maintain practices that further degrade their ecosystem and their lives. Frequently those negative tipping point levers are changes in technologies used by communities, brought on by shifts in their political, economic, or technological landscapes. Though they may be rooted in events many decades earlier, the vicious cycles they set off become deeply integrated across the human-environment system, inseparable from the workings of the community. Systems thinking gives us a way to see those cycles clearly. Once the pattern is visible, the question shifts from "how do we fix everything?" to "where can we intervene to start reversing it?" Knowing where the system is most open to change enables communities to devise targeted interventions powerful enough to act as levers for reversing decline. These <dfn data-definition="An assemblage of interventions that set in motion the reversal of decline in a human-environment system, putting it on a course of restoration, health, and sustainability. Positive tipping point levers include (1) technology that underlies intervention for desired ecosystem change and (2) social organization to put that technology effectively into use.">positive tipping point levers</dfn> set in motion a chain of self-reinforcing restorative impacts that cascade change through the human-environment system, creating a turnabout from decline to restoration. Finding the sites for these EcoTipping Points is the goal of using systems thinking to map and analyze the problem of decline.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Seeing the System in Action</h3></div>
+            <div class="mi-step-body">
+                <p><strong>How Feedback Diagrams Reveal Root Causes and Solutions.</strong> This video uses 'boxes and arrows' diagrams to show how circular chains of cause and effect drive both environmental decline and the success of interventions that tip a human-environment system toward restoration and sustainability.</p>
+                <figure>
+                    <div class="video-embed">
+                        <iframe
+                            src="https://www.youtube.com/embed/dAwzXLs2GLo?rel=0"
+                            title="What are EcoTipping Points?"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </figure>
+            </div>
+        </div>
+
+        <!-- HIDDEN 2026-09-25 (Brief 31): Ingredients for Success module
+        <div class="mi-ingredients">
+            <h4>Ingredients for Success</h4>
+            <ul>
+                <li><a href="ingredient-harmony-ecosystem.html">Harmony between community and ecosystem</a></li>
+            </ul>
+        </div>
+        -->
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Next Steps</h3></div>
+            <div class="mi-step-body">
+                <p>With the concept in hand, the next step is to recognize the specific web of interconnected problems at the place you're working.</p>
+                <a href="systems-thinking-recognize.html" class="mi-btn">Continue to Recognize It</a>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

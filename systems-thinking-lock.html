@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lock It In - Systems Thinking - EcoTipping Points</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ---- Systems Thinking step body (mi-). Self-contained, matches the
+           Reverse It / Map It page pattern. Lock It In is the terminal step:
+           no sidebar, no Next Steps. ---- */
+        .mi-body { font-family: 'Source Sans 3', sans-serif; }
+        .mi-body p { color: #4d564e; line-height: 1.65; font-size: 16px; }
+        .mi-body ul, .mi-body ol { color: #4d564e; line-height: 1.6; padding-left: 20px; margin: 10px 0; }
+        .mi-body li { margin-bottom: 8px; }
+        .mi-body h4 { font-size: 15px; font-weight: 700; color: #173a2b; margin: 22px 0 8px; }
+
+        .mi-intro { max-width: 760px; }
+        .mi-intro h2 { font-size: 28px; font-weight: 600; color: #173a2b; letter-spacing: -0.01em; margin: 0 0 12px; }
+
+        .mi-step { border-top: 1px solid #e8ece8; padding-top: 34px; margin-top: 42px; }
+        .mi-step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; }
+        .mi-step-head h3 { font-size: 23px; font-weight: 600; color: #173a2b; margin: 0; letter-spacing: -0.01em; }
+        .mi-step-body { max-width: 760px; }
+        .mi-context-label { display: block; margin-bottom: 3px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #C92914; text-transform: uppercase; }
+
+        .mi-reflect {
+            background: #f1f5f2; border-left: 3px solid #2a5a44; border-radius: 0 8px 8px 0;
+            padding: 20px 24px; margin: 24px 0; max-width: 760px;
+        }
+        .mi-reflect h3, .mi-reflect h4 { margin: 0 0 8px; color: #173a2b; font-size: 17px; }
+        .mi-reflect p { margin: 0; }
+
+        .mi-embed {
+            background: #f1f5f2; border: 1px solid #d2dcd5; border-radius: 8px;
+            padding: 26px 24px; margin: 16px 0; max-width: 760px;
+        }
+        .mi-embed .mi-embed-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #173a2b; }
+        .mi-embed p { margin: 6px 0 0; font-size: 15px; }
+        .mi-embed a { color: #C92914; font-weight: 600; text-decoration: none; }
+        .mi-embed a:hover { text-decoration: underline; }
+
+        .placeholder {
+            background: #f6f8f6; border: 1px dashed #b7c3ba; border-radius: 8px;
+            padding: 20px 22px; margin: 18px 0; max-width: 760px; color: #5c665d;
+            font-size: 14px; font-style: italic;
+        }
+
+        figure { margin: 22px 0; max-width: 760px; }
+        figure img { display: block; width: 100%; height: auto; border: 1px solid #e4e7e3; border-radius: 8px; }
+        figure img + img { margin-top: 10px; }
+        figcaption { font-size: 13px; color: #5c665d; margin-top: 8px; font-style: italic; }
+        .mi-embed img { display: block; width: 100%; height: auto; border-radius: 6px; margin-bottom: 12px; border: 1px solid #d2dcd5; }
+        .mi-mapseq figure { margin: 12px 0 0; }
+
+        .mi-ingredients {
+            border: 1px solid #e4e7e3; border-radius: 8px; padding: 20px 24px;
+            margin: 30px 0; max-width: 760px; background: #f1f5f2;
+        }
+        .mi-ingredients h4 { margin: 0 0 10px; color: #C92914; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+        .mi-ingredients ul { margin: 0; padding-left: 18px; }
+        .mi-ingredients a { color: #262b26; font-weight: 600; text-decoration: none; }
+        .mi-ingredients a:hover { color: #C92914; }
+
+        .mi-apo {
+            background: #f1f5f2; border: 1px solid #e4e7e3; border-radius: 8px;
+            padding: 20px 22px; margin: 20px 0; max-width: 820px;
+        }
+        .mi-apo .mi-eyebrow { font-size: 11px; font-weight: 600; color: #C92914; margin-bottom: 10px; }
+        .mi-apo p { margin: 0 0 12px; font-size: 15px; }
+        .mi-apo p:last-child { margin-bottom: 0; }
+
+        .mi-flow { list-style: none; padding: 0; margin: 16px 0; max-width: 760px; }
+        .mi-flow li {
+            border-left: 3px solid #2a5a44; padding: 6px 0 6px 16px; margin: 0 0 10px;
+            font-size: 15px; color: #4d564e;
+        }
+
+        /* Numbered sequence with diagram slots, matching the Map It page */
+        .mi-mapseq { list-style: none; padding: 0; margin: 20px 0; max-width: 820px; counter-reset: mapstep; }
+        .mi-mapseq > li { counter-increment: mapstep; border-top: 1px solid #e8ece8; padding-top: 22px; margin-top: 22px; }
+        .mi-mapseq > li:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
+        .mi-mapseq > li::before {
+            content: counter(mapstep); display: inline-block; font-weight: 700; color: #C92914;
+            font-size: 18px; margin-right: 10px;
+        }
+        .mi-mapseq > li p { display: inline; }
+        /* Generic diagram lists: no step numbers, no indent (beats .mi-body ol) */
+        .mi-body ol.mi-mapseq.mi-mapseq--plain { padding-left: 0; }
+        .mi-body ol.mi-mapseq.mi-mapseq--plain > li::before { content: none; }
+        /* Generic diagrams print and display without the figure border */
+        figure.diagram-generic img { border: 0; }
+        /* Generic diagram captions: one bold style (beats .mi-body p and .mi-mapseq > li p) */
+        .mi-body p.diagram-caption { font-weight: 700; font-size: 16px; color: #4d564e; line-height: 1.65; }
+
+        .mi-btn {
+            display: inline-block; background: #C92914; color: #fff; text-decoration: none;
+            font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
+        }
+        .mi-btn:hover { background: #8B190A; }
+
+        /* Squared corners — match the Key Concept box */
+        .mi-reflect, .mi-note, .mi-apo, .mi-ingredients, .mi-embed, .mi-embed img,
+        .placeholder, .mi-resources, .mi-flow li, figure img, .mi-chip, .mi-loop { border-radius: 0; }
+        .mi-ingredients { clear: both; }
+
+        .two-col { grid-template-columns: 1fr; }
+    </style>
+</head>
+<body>
+    <script src="nav.js"></script>
+
+    <nav class="subnav">
+        <div class="subnav-container">
+            <a href="systems-thinking-overview.html">Overview</a>
+            <a href="systems-thinking-understand.html">Understand It</a>
+            <a href="systems-thinking-recognize.html">Recognize It</a>
+            <a href="systems-thinking-map.html">Map It</a>
+            <a href="systems-thinking-reverse.html">Reverse It</a>
+            <a href="systems-thinking-lock.html" class="active">Lock It In</a>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="page-header-content">
+            <div class="label">Systems Thinking</div>
+            <h1>Lock It In</h1>
+            <p class="intro">As initial interventions take hold, build the economic and social connections that make recovery self-sustaining and help it spread to other communities.</p>
+        </div>
+    </section>
+
+    <div class="two-col">
+        <div class="mi-body main-content">
+
+        <div class="mi-intro">
+            <h2>Goal</h2>
+            <p>Come away with a strategy for channeling early restoration gains into overlapping <dfn data-definition="A feedback loop that drives desirable changes such as restoration and sustainability in a human-environment system. Virtuous cycles appear when a positive tipping point lever reverses vicious cycles, transforming them into virtuous cycles. Additional virtuous cycles may appear as community initiatives create a dynamic of &quot;success breeds success&quot; during a positive tip.">virtuous cycles</dfn> that weave recovery into the fabric of community life and sustain themselves through setbacks and changing conditions.</p>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>How Gains Get Locked In</h3></div>
+            <div class="mi-step-body">
+                <p>Once key <dfn data-definition="A continuous circle of cause and effect, where change in one part of the circle induces a chain of effects around the circle to generate further change. The feedback loops in this toolkit are amplifying feedback loops, which can drive dramatic change.">feedback loops</dfn> driving ecological decline have been reversed, the process of creating a sustainable systemic turnabout relies on creating overlapping mutually-reinforcing feedback loops that lock in restoration. These virtuous cycles can amplify each other's power and weave restorative activity into the fabric of the community. And that self-reinforcing force is crucial for sustaining the work needed on the long road to recovery, since changing conditions and social obstacles will invariably arise.</p>
+                <p>Our case studies of success demonstrate that locking in restoration happens when the proceeds from <dfn data-definition="The entire biophysical world in a specified area. The scale of an ecosystem can range from microscopic to the entire Planet. This toolkit focuses on environmental support systems for local communities.">ecosystem</dfn> recovery are channeled into new enterprises that celebrate and promote the health and restoration of the community and environment, thereby making their gains go hand-in-hand. In the case of Apo Island, it was the creation of a marine sanctuary combined with regulations banning destructive fishing locally that had the power to tip the balance. But when the rewards of those changes began to materialize in the form of recovery of coral, fish and income, the community directed some of those material benefits into development of ecotourism enterprises for diving in their reviving reefs and building other income sources that took pressure off the fishery to provide for their growing population. And instead of pulling back on community engagement, their momentum increased by expanding community engagement with the marine sanctuary that had become a symbol of their recovery, and with developing marine education programs in their schools, scholarship opportunities for marine science degrees, and helping other islands in the Philippine archipelago learn strategies. These choices of how to direct their initial gains led to <dfn data-definition="New virtuous cycles whose creation is stimulated by existing virtuous cycles, typically a consequence of community initiatives stimulated by virtuous cycles.">positive spin-offs</dfn> that created new virtuous cycles in their <dfn data-definition="The combined social system and ecosystem. The way the combined system functions is a consequence of interaction between social system and ecosystem.">human-environment system</dfn>, each of which reinforced those that had already been set in motion. These interlocking feedback loops locked in the gains.</p>
+                <ol class="mi-mapseq mi-mapseq--plain">
+                    <li>
+                        <p class="diagram-caption">Community enterprises integrate restoration with the social fabric of the community.</p>
+                        <figure class="diagram-generic">
+                            <img src="images/systems-thinking/image33.png" alt="Diagram: new community enterprises grow out of sustainable activity and ecosystem health">
+                        </figure>
+                    </li>
+                    <li>
+                        <p class="diagram-caption">The new enterprises increase community commitment to sustainable activity, creating new virtuous cycles that consolidate the gains.</p>
+                        <figure class="diagram-generic">
+                            <img src="images/systems-thinking/image32.png" alt="Diagram: new community enterprises feed back into sustainable activity, creating new virtuous cycles">
+                        </figure>
+                    </li>
+                </ol>
+
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">ON APO ISLAND</div>
+                    <p>Initial success (fish recovery) led to multiple mutually reinforcing cycles:</p>
+                    <h4>Economic Cycle:</h4>
+                    <p>Marine tourism income→Family incomes and funds for community services →More incentive to protect the marine ecosystem→Better enforcement→Healthier reefs→↺ More tourism</p>
+                    <h4>Educational Cycle:</h4>
+                    <p>Educational programs→Pride in achievement→Stronger community identity→More community support for protection and more knowledge about how to do it→Better outcomes→↺ More to teach about</p>
+                    <h4>Recognition Cycle:</h4>
+                    <p>Scientific recognition→Outside support→Enhanced credibility→More resources→Better monitoring→↺ More recognition</p>
+                    <p>The Result: The marine sanctuary, community management of the Islands fishing grounds, and a healthy marine ecosystem became permanent features of the Island as multiple, mutually reinforcing virtuous cycles integrated them into the community's identity and economy.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Seeing the System in Action</h3></div>
+            <div class="mi-step-body">
+                <p><strong>What keeps a positive tipping point in place once it takes hold?</strong> This 2-minute animated video uses <dfn data-definition="An assemblage of interconnected elements whose behavior is shaped by functional connections between them. The behavior of the entire system is a consequence of interaction between the parts.">system</dfn> diagrams to show how community initiatives created new virtuous cycles that locked in restoration of the Island's marine ecosystem and benefits provided to the community.</p>
+                <figure>
+                    <div class="video-embed video-embed-caption-space">
+                        <iframe
+                            src="https://www.youtube.com/embed/un-BTpdRoUU?rel=0"
+                            title="What keeps a positive tipping point in place once it takes hold?"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </figure>
+                <details class="video-script">
+                    <summary><span class="vs-show">View Script</span><span class="vs-hide">Hide Script</span></summary>
+                    <div class="video-script-body">
+                        <p>Then, as fish increased around the Island, local fishermen were no longer forced to travel far away to find enough fish, and another virtuous cycle appeared. Fishing locally, where they had to live with the consequences of their fishing practices, reinforced the fishermen’s motivation for sustainable fishing and their commitment to the Island’s management program, resulting in less destructive fishing and a local culture of not overfishing, which in turn led to healthier coral and more fish.</p>
+                        <p>And there was still more! Apo Island’s thriving coral reefs and colorful fish attracted tourism. Managing tourism gave Apo Islanders more experience and incentive to keep the marine ecosystem healthy, which improved the management of the fishing grounds, preventing destructive fishing and discouraging overfishing, resulting in healthier coral, more fish, and more tourism. And yet another virtuous cycle appeared when the community’s high level of environmental awareness and commitment stimulated it to use funds from tourism to add a marine ecology education program to the Island’s primary school. Tourism also funded scholarships to send Island children for higher education in Marine Biology and other fields that would benefit the Island. More education enhanced the pool of knowledge on which the community depended for effective management, creating an incentive to keep investing in better education for island youth.</p>
+                        <p>All of the virtuous cycles combined to reinforce each other with enough force to restore a healthy marine ecosystem, fishery, and community – and lock in the gains. The experience, knowledge, skills and commitment that Apo Islanders acquired while rescuing their marine ecosystem and fishery gave them the strength and resilience to meet new challenges that would inevitably arise in the future. Apo Island’s success inspired the creation of about two thousand marine sanctuaries around the Philippines, most of which are still thriving today.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="mi-reflect">
+            <h4>Key Concept</h4>
+            <p>Early success can die out if it's not built into the fabric of community life. Sustainability comes from multiple, mutually-reinforcing virtuous cycles.</p>
+        </div>
+
+        <!-- HIDDEN 2026-09-25 (Brief 31): Ingredients for Success module
+        <div class="mi-ingredients">
+            <h4>Ingredients for Success</h4>
+            <ul>
+                <li><a href="ingredient-enduring-commitment.html">Enduring commitment of local leadership</a></li>
+                <li><a href="ingredient-mobilizing-commitment.html">Mobilizing community commitment</a></li>
+                <li><a href="ingredient-building-resilience.html">Building resilience</a></li>
+                <li><a href="ingredient-social-ecological-diversity.html">Ecological and social diversity</a></li>
+                <li><a href="ingredient-overcoming-obstacles.html">Overcoming social obstacles</a></li>
+            </ul>
+        </div>
+        -->
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Planning for Positive Spin-Offs</h3></div>
+            <div class="mi-step-body">
+                <p>New virtuous cycles that build on initial gains are part of the natural process that happens when an effective <dfn data-definition="An assemblage of interventions that set in motion the reversal of decline in a human-environment system, putting it on a course of restoration, health, and sustainability. Positive tipping point levers include (1) technology that underlies intervention for desired ecosystem change and (2) social organization to put that technology effectively into use.">positive tipping point lever</dfn> sends a cascade of change across the human-environment system. However it is not a given. Just as devising an effective lever involves thinking downstream about potential opportunities for positive impacts and sustainable choices, achieving positive spin-offs that create new, overlapping feedback loops requires thinking of the future instead of leaving it to chance. Specific action cannot always be planned in advance of the initial success. But with awareness that new actions will be necessary to reinforce systemic restoration, resources, opportunities, and motivation can be directed from initial wins towards initiatives that advance positive change by weaving restoration into the life of the community.</p>
+                <p>The persistence and resilience of a community's commitment are important for a restoration process that may take years with setbacks and obstacles along the way. Promoting or building these qualities within a community will help to stabilize recovery, as new virtuous cycles are created and reverberate through the system. To make change permanent, the goal must be to make the initial efforts a new normal that sustains itself through multiple reinforcing mechanisms. This might include:</p>
+                <ul>
+                    <li>Economic enterprises that depend on and support restoration</li>
+                    <li>Educational programs that build pride and understanding</li>
+                    <li>New community traditions or celebrations</li>
+                    <li>Recognition and support from outside organizations</li>
+                    <li>Clear rules and enforcement mechanisms that have community buy-in</li>
+                </ul>
+                <p>Key <dfn data-definition="Key features of the technology and community organization in positive tipping point levers that increase the effectiveness of a lever. We see the same Ingredients for Success in every success story.">ingredients for success</dfn> held in common by our case studies have enabled communities to create new virtuous cycles and lock in positive change with enough force and sustainability that they became examples for countless other communities facing similar crises. <a href="ingredients-overview.html">Our Ingredients for Success tool</a> provides strategies on how to recognize and build these ingredients.</p>
+                <p>The descriptions below show how some of the Ingredients for Success contributed to lock-in with the rainwater harvesting story at Gopalpura, Rajasthan.</p>
+                <p><span class="mi-context-label">For full context</span><a href="story-gopalpura.html">Watch the Gopalpura story on rainwater harvesting in Rajasthan, India</a> (11 min)</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Mobilizing Community Commitment</h3></div>
+            <div class="mi-step-body">
+                <p>Because powerful symbols inspire commitment and persistence, it is common for charismatic leaders, cherished sites in a local landscape, or other prominent features of a community's success to serve as symbols that inspire commitment and endurance. Giving that symbolic power to accomplishment, communities have mobilized commitment for sustained change by recognizing and celebrating achievements at every step of the way, further mobilizing commitment. Recognizing quick success, or "payback," in early stages of community action can help maintain effort as positive results build upon each other and cascade through the community and ecosystem by way of normal social, economic, and political processes.</p>
+                <p>In the case of Gopalpura, it was only a matter of months before the traditional dam they built restored the aquifer enough for a dried up well to fill with water. Though they had not yet seen a return of their rivers or forests, this rapid success was celebrated and inspired the building of more dams. And as they saw these efforts translate into sprouting forests, they tied colorful kinship bracelets, or Rachis, around the trunks of trees as a symbol of family protection, reaffirming their commitment to allowing nature to restore itself rather than exploiting sources of fuel closer to home.</p>
+                <p>Planning benchmarks, recognizing and retelling successes, and finding ways to infuse those successes with symbolic power is an effective way for maintaining the community commitment needed to take action to create new virtuous cycles.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Enduring Commitment of Local Leadership</h3></div>
+            <div class="mi-step-body">
+                <p>Persistence is essential because a turnabout from decline to restoration seldom comes easily. Trusted and persistent leaders inspire the deep-rooted and enduring community commitment, participation, and action necessary for success. In the case of Gopalpura, leadership began when a village elder put a youth organization TBS on course to provide food to pay for the village labor needed to rebuild the first rainwater-harvesting dam. TBS provided leadership during the decade-long process of rebuilding dams in Gopalpura, ensuring that the work would be completed by insisting on labor and cash commitments from the village and resisting the efforts of powerful vested interests to block the dam construction. TBS has continued its leadership right up to the present time by actively hosting thousands of visitors to see what was achieved in Gopalpura and facilitating the construction of johads in more villages.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Ecological and Social Diversity</h3></div>
+            <div class="mi-step-body">
+                <p>Greater social diversity and environmental diversity provide more choices and opportunities, and better opportunities for some of the choices to be good ones. Diverse ideas and skills strengthen a community's environmental technologies and organization. When those skills are applied to developing a range of enterprises tied to initial gains, then new virtuous cycles can emerge and the community is in a better position to withstand unexpected disruptions and difficult times. Likewise, an ecosystem's species diversity enhances the ecological resources that it needs for self-restoration. So, if a farmer plants multiple crops, it not only allows them to survive poor harvests but the land itself will be in a better position to recover from degradation.</p>
+                <p>In the case of Gopalpura, the comprehensive representation of opinions in the traditional Gram Sabha village council provided a solid basis for decisions that the entire community could support. The diversity of technical expertise, ranging from the knowledge of village elders about dam construction and operation to contributions from TBS engineers, ensured that the johads were technically sound. Once the wells were restored and water and fuelwood were just a short walk away, women had time to start cooperatives for a diversity of enterprises generating income in the village, such as selling milk products, handicrafts, and soap, thereby diversifying their sources of income. Children had time to go to school, including girls who had not previously had the opportunity, bringing new skills and confidence to the village. The area in wheat fields tripled, and with the land and sense of possibility restored, some farmers diversified into sugarcane, potatoes and onions, which increased the chance that if one crop was having a bad year due to poor harvest or low market values, another crop was there to help the community thrive. Forest restoration provided habitat for more diversity of wildlife, including top predators such as leopards and tigers.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Overcoming Social Obstacles</h3></div>
+            <div class="mi-step-body">
+                <p>Once success is underway, obstacles are bound to arise. And so restoration must be woven strongly enough into the fabric of the community to withstand those pressures. Overwhelming complexity in today's world can create seemingly endless obstacles to success, such as a dysfunctional dependence on the status quo that prevents necessary change, competing demands on people's attention and time that leave little room for community involvement, and interference from outsiders seeking control of restored resources. Additionally, innovation or change often provokes resistance from individuals, commercial interests, or governments that feel threatened. Despite these challenges, successful communities find creative ways to overcome social paralysis, often through strategies that emphasize local autonomy and reduce reliance on larger systems where many of these obstacles originate.</p>
+                <p>In the case of Gopalpura, it was a lot of work to restore the dams. It took months to dig the sediment out of just one. Digging wells deeper with tube well technology had been the easy way. It had worked until the aquifers were sucked dry, but it was no longer working. Villagers were willing to put out the effort to restore dams and make new ones because they were desperate and the ultimate benefits from dams were large. There were problems with the level of village function necessary to build and maintain dams, such as conflict between different political factions in a village, but TBS's strict contracts dealt with those problems. When the government felt threatened by the movement to build traditional dams, it tried forcibly to stop it, claiming that only the government had a right to manage underground water. When TBS took legal action against the marble mines, the mine companies responded by sending thugs to beat up TBS leaders. After the rivers were restored, the government tried to give exclusive fisheries rights to a single company. However, TBS was able to overcome all of these obstacles with a combination of legal action and nonviolent civil disobedience by the Water Warriors.</p>
+                <p>Knowing how to pre-meditate social obstacles, and build strategies to successfully counter them is essential to lock in success.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Building Resilience</h3></div>
+            <div class="mi-step-body">
+                <p>"Resilience" is the ability to continue functioning in the face of potentially crippling external disruptions. Positive tipping point levers are most effective when they not only set in motion a path to sustainability, but also enhance the resilience to withstand threats that would nullify the gains. A community's adaptive capacity (its openness to change based on shared awareness, prudent experimentation, learning from successes and mistakes, and acting upon what has been learned) plays a major role in strengthening resilience. As tipping point stories play out and people experience more benefits from their efforts, there is an increase in community confidence, commitment, and initiative. New virtuous cycles emerge to reinforce and consolidate the gains.</p>
+                <p>In the case of Gopalpura's rainwater harvesting, the journey from environmental and social devastation to thriving rivers, aquifers, forests, and villages was a result not just of building dams, but also of building resilience. As restoration proceeded, the changes enhanced the ability of watersheds and communities to continue functioning effectively in the face of inevitable disruptions. Healthy forests protected the soil and enhanced the water storage capacity of watersheds so they could provide a more continuous flow of water to dams.</p>
+                <p>Underground water storage prevented water loss due to evaporation, ensuring an ample supply of water for household use and dry season irrigation even in times of low rainfall.</p>
+                <p>The strong social organization and community solidarity provided by their traditional village council representing all families enhanced the capacity to respond quickly and collectively to disruptions.</p>
+                <p>The virtuous cycles driving positive change (more water channeled from johads into the aquifer, more agriculture, more vegetation on the watershed, less erosion, less siltation of dams, more water channeled from dams into the aquifer) and the related social benefits, such as men returning to the village, ensured the sustainability of the gains.</p>
+                <p>Because it was no longer necessary for women and children to haul water from distant sources, women had more time for housework, child care, and supplemental economic activities that strengthened their collective ability and confidence to deal with problems. Children had time to return to school and the education that could provide them a more secure future.</p>
+                <p>The community's organizational development and experience restoring dams prepared it to deal with other disasters and challenges that would arise in the future.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Ingredients for Success</h3></div>
+            <div class="mi-step-body">
+                <p>Now that you've seen how the process works, see what it looks like when it succeeds. Across our case studies, ten conditions show up repeatedly in communities where restoration has taken hold. Each ingredient page helps you assess what's present in your situation and where to focus.</p>
+                <a href="ingredients-overview.html" class="mi-btn">Explore Ingredients for Success</a>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
