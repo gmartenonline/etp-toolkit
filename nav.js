@@ -165,7 +165,7 @@
                 '<div style="max-width:calc(var(--max-width) + 2 * var(--content-pad-x));margin:0 auto;padding:18px var(--content-pad-x);' + F + 'font-size:12px;letter-spacing:0.04em;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">' +
                     '<span>©2026 EcoTipping Points</span>' +
                     '<div style="text-align:right;">' +
-                        '<div>v0.7.0 · 10/1/26</div>' +
+                        '<div>v0.7.1 · 10/12/26</div>' +
                     '</div>' +
                 '</div>' +
             '</div>';
